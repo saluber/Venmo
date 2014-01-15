@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -126,9 +126,96 @@
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>my application</value>
+    <value>Venmo</value>
+  </data>
+  <data name="BaseUrl" xml:space="preserve">
+    <value>https://api.venmo.com/v1</value>
+  </data>
+  <data name="FeedbackEmail" xml:space="preserve">
+    <value>mailto:samantha.luber@outlook.com</value>
   </data>
   <data name="SampleProperty" xml:space="preserve">
-    <value>Sample Runtime Property Value</value>
+    <value>IORABs</value>
+  </data>
+  <data name="AmountFieldDefaultValue" xml:space="preserve">
+    <value>0.00</value>
+  </data>
+  <data name="AmountFieldTitle" xml:space="preserve">
+    <value>Amount:</value>
+  </data>
+  <data name="BalanceText" xml:space="preserve">
+    <value>Balance:</value>
+  </data>
+  <data name="CancelButtonTitle" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ChargeViewTitle" xml:space="preserve">
+    <value>Charge money</value>
+  </data>
+  <data name="ConfirmationViewChargeText" xml:space="preserve">
+    <value>Your request has been seent!</value>
+  </data>
+  <data name="ConfirmationViewPayText" xml:space="preserve">
+    <value>Your payment has been sent!</value>
+  </data>
+  <data name="ConfirmationViewTitle" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="CurrencySymbol" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="FriendsViewTitle" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="InvalidAmountFieldError" xml:space="preserve">
+    <value>Invalid amount</value>
+  </data>
+  <data name="InvalidToFieldError" xml:space="preserve">
+    <value>Venmo user not found</value>
+  </data>
+  <data name="LogoutSettingTitle" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MainViewTitle" xml:space="preserve">
+    <value>Venmo</value>
+  </data>
+  <data name="MessageFieldDefaultValue" xml:space="preserve">
+    <value>Optional note</value>
+  </data>
+  <data name="MessageFieldTitle" xml:space="preserve">
+    <value>Message:</value>
+  </data>
+  <data name="MeViewTitle" xml:space="preserve">
+    <value>Me</value>
+  </data>
+  <data name="PaidText" xml:space="preserve">
+    <value> paid </value>
+  </data>
+  <data name="PayViewTitle" xml:space="preserve">
+    <value>Pay money</value>
+  </data>
+  <data name="PrivacySettingFriendsTitle" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="PrivacySettingPrivateTitle" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="PrivacySettingPublicTitle" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="PrivacySettingTitle" xml:space="preserve">
+    <value>Privacy Setting</value>
+  </data>
+  <data name="RefreshButtonTitle" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="SendButtonTitle" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="ToFieldDefaultValue" xml:space="preserve">
+    <value>Email or username</value>
+  </data>
+  <data name="ToFieldTitle" xml:space="preserve">
+    <value>To:</value>
   </data>
 </root>

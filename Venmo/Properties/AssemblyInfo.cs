@@ -7,9 +7,9 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Venmo")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Venmo for Windows Phone")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Samantha Luber")]
 [assembly: AssemblyProduct("Venmo")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]

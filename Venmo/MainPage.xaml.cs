@@ -2,6 +2,7 @@
 using System.Net;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -10,13 +11,16 @@ using Microsoft.Phone.Shell;
 
 namespace Venmo
 {
-    public partial class MainPage : PhoneApplicationPage
+    public sealed partial class MainPage : PhoneApplicationPage
     {
+        private HttpClient httpClient;
+        private AuthenticatedSession userSession;
+
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-
+            this.httpClient = new HttpClient();
             // Set the data context of the listbox control to the sample data
             DataContext = App.ViewModel;
         }
