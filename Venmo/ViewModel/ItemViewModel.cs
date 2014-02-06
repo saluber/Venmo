@@ -8,7 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace Venmo.ViewModels
+namespace Venmo.ViewModel
 {
     public class ItemViewModel : INotifyPropertyChanged
     {

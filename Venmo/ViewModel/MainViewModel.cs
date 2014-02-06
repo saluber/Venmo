@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Venmo.Resources;
 
-namespace Venmo.ViewModels
+namespace Venmo.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {

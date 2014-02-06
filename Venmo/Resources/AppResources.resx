@@ -218,4 +218,10 @@
   <data name="ToFieldTitle" xml:space="preserve">
     <value>To:</value>
   </data>
+  <data name="AuthorizationError" xml:space="preserve">
+    <value>Authorization failed :(. Please try again!</value>
+  </data>
+  <data name="AuthorizationSuccess" xml:space="preserve">
+    <value>Success!</value>
+  </data>
 </root>

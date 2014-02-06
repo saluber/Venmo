@@ -14,7 +14,7 @@ namespace Venmo
     public sealed partial class MainPage : PhoneApplicationPage
     {
         private HttpClient httpClient;
-        private AuthenticatedSession userSession;
+        private VenmoAuthUser user;
 
         // Constructor
         public MainPage()

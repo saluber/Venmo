@@ -9,12 +9,18 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Venmo.Resources;
-using Venmo.ViewModels;
+using Venmo.ViewModel;
 
 namespace Venmo
 {
     public partial class App : Application
     {
+        /// <summary>
+        /// Provides easy access to the root frame of the Phone Application.
+        /// </summary>
+        /// <returns>The root frame of the Phone Application.</returns>
+        public static PhoneApplicationFrame RootFrame { get; private set; }
+
         private static MainViewModel viewModel = null;
 
         /// <summary>
@@ -27,17 +33,13 @@ namespace Venmo
             {
                 // Delay creation of the view model until necessary
                 if (viewModel == null)
+                {
                     viewModel = new MainViewModel();
+                }
 
                 return viewModel;
             }
         }
-
-        /// <summary>
-        /// Provides easy access to the root frame of the Phone Application.
-        /// </summary>
-        /// <returns>The root frame of the Phone Application.</returns>
-        public static PhoneApplicationFrame RootFrame { get; private set; }
 
         /// <summary>
         /// Constructor for the Application object.
@@ -99,7 +101,7 @@ namespace Venmo
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
-            // Ensure that required application state is persisted here.
+            // TODO: Ensure that required application state is persisted here.
         }
 
         // Code to execute when the application is closing (eg, user hit Back)
@@ -137,7 +139,9 @@ namespace Venmo
         private void InitializePhoneApplication()
         {
             if (phoneApplicationInitialized)
+            {
                 return;
+            }
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
@@ -154,7 +158,6 @@ namespace Venmo
             phoneApplicationInitialized = true;
         }
 
-        // Do not add any additional code to this method
         private void CompleteInitializePhoneApplication(object sender, NavigationEventArgs e)
         {
             // Set the root visual to allow the application to render
