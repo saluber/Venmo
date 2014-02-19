@@ -52,15 +52,15 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Text="{Binding Actor.ProfilePictureURL}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
-                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.RowSpan="0-2" Grid.Column="0"/>
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="0"/>
                                     <TextBlock Text="{Binding Description}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
                                                FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="1"/>
                                     <TextBlock Text="{Binding FormattedAmount}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
@@ -83,7 +83,7 @@
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,-6,0,12">
-                                <TextBlock Text="{Binding Id}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                                <TextBlock Text="{Binding Id}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
                             </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
@@ -97,7 +97,7 @@
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,-6,0,12">
-                                <TextBlock Text="{Binding DisplayName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                                <TextBlock Text="{Binding DisplayName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
                             </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>

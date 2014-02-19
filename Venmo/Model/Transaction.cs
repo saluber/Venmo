@@ -22,9 +22,16 @@ namespace Venmo
 
     public enum TransactionTargetType
     {
+        [EnumMember]
         Phone,
+
+        [EnumMember]
         Email,
+
+        [EnumMember]
         User,
+
+        [EnumMember]
         Invalid
     }
 
@@ -39,18 +46,34 @@ namespace Venmo
 
     public enum TransactionStatus
     {
+        [EnumMember]
         Pending,
+
+        [EnumMember]
         Settled,
+
+        [EnumMember]
         Failed,
+
+        [EnumMember]
         Expired,
+
+        [EnumMember]
         Cancelled
     }
 
     public enum TransactionMedium
     {
+        [EnumMember]
         IOS,
+
+        [EnumMember]
         Android,
+
+        [EnumMember]
         Web,
+
+        [EnumMember]
         API
     }
     #endregion // Transaction Type Enumerations
@@ -94,19 +117,20 @@ namespace Venmo
     [DataContract]
     public class TransactionSummary : VenmoResponse
     {
+        private string status;
         [DataMember]
         public string Status 
         {
             get
             {
-                return this.Status;
+                return this.status;
             }
             set
             {
-                this.Status = value;
+                this.status = value;
                 // Try to parse TransactionStatus value from status field
                 TransactionStatus ts;
-                if (Enum.TryParse<TransactionStatus>(this.Status, true, out ts))
+                if (Enum.TryParse<TransactionStatus>(this.status, true, out ts))
                 {
                     this.TransactionStatus = ts;
                 }
@@ -123,19 +147,20 @@ namespace Venmo
         [DataMember]
         public Target Target { get; set; }
 
+        private string audience;
         [DataMember]
         public string Audience 
         {
             get
             {
-                return this.Audience;
+                return this.audience;
             }
             set
             {
-                this.Audience = value;
+                this.audience = value;
                 // Try to parse TransactionAudience value from audience field
                 TransactionAudience ta;
-                if (Enum.TryParse<TransactionAudience>(this.Audience, true, out ta))
+                if (Enum.TryParse<TransactionAudience>(this.audience, true, out ta))
                 {
                     this.TransactionAudience = ta;
                 }
@@ -155,19 +180,20 @@ namespace Venmo
         [DataMember]
         public double Amount { get; set; }
 
+        private string action;
         [DataMember]
         public string Action 
         {
             get
             {
-                return this.Action;
+                return this.action;
             }
             set
             {
-                this.Action = value;
+                this.action = value;
                 // Try to parse TransactionAction value from action field
                 TransactionAction t;
-                if (Enum.TryParse<TransactionAction>(this.Action, true, out t))
+                if (Enum.TryParse<TransactionAction>(this.action, true, out t))
                 {
                     this.TransactionAction = t;
                 }
@@ -227,19 +253,20 @@ namespace Venmo
     [DataContract]
     public class Transaction
     {
+        private string status;
         [DataMember]
         public string Status
         {
             get
             {
-                return this.Status;
+                return this.status;
             }
             set
             {
                 this.Status = value;
                 // Try to parse TransactionStatus value from status field
                 TransactionStatus ts;
-                if (Enum.TryParse<TransactionStatus>(this.Status, true, out ts))
+                if (Enum.TryParse<TransactionStatus>(this.status, true, out ts))
                 {
                     this.TransactionStatus = ts;
                 }
@@ -253,19 +280,20 @@ namespace Venmo
         [DataMember]
         public Transaction Refund { get; set; }
 
+        private string medium;
         [DataMember]
         public string Medium 
         {
             get
             {
-                return this.Medium;
+                return this.medium;
             }
             set
             {
-                this.Medium = value;
+                this.medium = value;
                 // Try to parse TransactionTransactionMedium value from medium field
                 TransactionMedium t;
-                if (Enum.TryParse<TransactionMedium>(this.Medium, true, out t))
+                if (Enum.TryParse<TransactionMedium>(this.medium, true, out t))
                 {
                     this.TransactionMedium = t;
                 }
@@ -279,19 +307,20 @@ namespace Venmo
         [DataMember]
         public Target Target { get; set; }
 
+        private string audience;
         [DataMember]
         public string Audience
         {
             get
             {
-                return this.Audience;
+                return this.audience;
             }
             set
             {
-                this.Audience = value;
+                this.audience = value;
                 // Try to parse TransactionAudience value from audience field
                 TransactionAudience ta;
-                if (Enum.TryParse<TransactionAudience>(this.Audience, true, out ta))
+                if (Enum.TryParse<TransactionAudience>(this.audience, true, out ta))
                 {
                     this.TransactionAudience = ta;
                 }
@@ -314,19 +343,20 @@ namespace Venmo
         [DataMember]
         public double Fee { get; set; }
 
+        private string action;
         [DataMember]
         public string Action
         {
             get
             {
-                return this.Action;
+                return this.action;
             }
             set
             {
-                this.Action = value;
+                this.action = value;
                 // Try to parse TransactionAction value from action field
                 TransactionAction t;
-                if (Enum.TryParse<TransactionAction>(this.Action, true, out t))
+                if (Enum.TryParse<TransactionAction>(this.action, true, out t))
                 {
                     this.TransactionAction = t;
                 }
