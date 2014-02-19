@@ -7,7 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -42,24 +41,73 @@
                 <ImageBrush ImageSource="/Venmo;component/Assets/PanoramaBackground.png"/>
             </phone:Panorama.Background>
 
-            <!--Panorama item one-->
-            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.FriendsViewTitle, Source={StaticResource LocalizedStrings}}">
+            <!--Panorama Feed View-->
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.FeedTitle, Source={StaticResource LocalizedStrings}}">
                 <!--Single line list with text wrapping-->
-                <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding Items}">
+                <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding UserFriendsFeed}">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,-6,0,12">
-                                <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                                <Grid Margin="12,0,0,38">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Actor.ProfilePictureURL}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.RowSpan="0-2" Grid.Column="0"/>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding FormattedAmount}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="2"/>
+                                    <TextBlock Text="{Binding Note}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="1" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding DateCreated}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="2" Grid.Column="1"/>
+                                </Grid>
                             </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
             </phone:PanoramaItem>
 
-            <!--Panorama item two-->
-            <phone:PanoramaItem>
+            <!--Panorama Me View-->
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.MeTitle, Source={StaticResource LocalizedStrings}}">
+                <!--Single line list with text wrapping-->
+                <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding UserFeed}">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,-6,0,12">
+                                <TextBlock Text="{Binding Id}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
+            </phone:PanoramaItem>
+
+            <!--Panorama Friends View-->
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.FriendsTitle, Source={StaticResource LocalizedStrings}}">
+                <!--Single line list with text wrapping-->
+                <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding UserFriends}">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,-6,0,12">
+                                <TextBlock Text="{Binding DisplayName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
+            </phone:PanoramaItem>
+        </phone:Panorama>
+        <!--Panorama item two-->
+            <!--<phone:PanoramaItem>-->
                 <!--Double line list with image placeholder and text wrapping using a floating header that scrolls with the content-->
-                <phone:LongListSelector Margin="0,-38,-22,2" ItemsSource="{Binding Items}">
+                <!--<phone:LongListSelector Margin="0,-38,-22,2" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ListHeaderTemplate>
                         <DataTemplate>
                             <Grid Margin="12,0,0,38">
@@ -75,9 +123,9 @@
                     </phone:LongListSelector.ListHeaderTemplate>
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="12,2,0,4" Height="105" Width="432">
+                            <StackPanel Orientation="Horizontal" Margin="12,2,0,4" Height="105" Width="432">-->
                                 <!--Replace rectangle with image-->
-                                <Border BorderThickness="1" Width="99" Height="99" BorderBrush="#FFFFC700" Background="#FFFFC700"/>
+            <!--<Border BorderThickness="1" Width="99" Height="99" BorderBrush="#FFFFC700" Background="#FFFFC700"/>
                                 <StackPanel Width="311" Margin="8,-7,0,0">
                                     <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Margin="10,0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" />
                                     <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="10,-2,10,0" Style="{StaticResource PhoneTextSubtleStyle}" />
@@ -87,9 +135,7 @@
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
             </phone:PanoramaItem>
-
-            <!--Panorama item three-->
-        </phone:Panorama>
+        -->
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to
@@ -97,7 +143,7 @@
             if the System Tray is hidden.
 
             Before shipping remove this XAML and the image itself.-->
-        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+        <Image Source="../Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />
 
     </Grid>
 </phone:PhoneApplicationPage>

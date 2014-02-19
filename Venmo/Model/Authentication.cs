@@ -61,20 +61,14 @@ namespace Venmo
         [DataMember]
         public string RefreshToken { get; set; }
     }
-    #endregion
+    #endregion // Authentication Requests
 
     #region Authentication Request Responses
     [DataContract]
-    public class VenmoAuthUser
+    public class VenmoAuthUser : VenmoResponse
     {
         [DataMember]
-        public string AccessToken { get; set; }
-
-        [DataMember]
-        public string RefreshToken { get; set; }
-
-        [DataMember]
-        public long ExpiresIn { get; set; }
+        public VenmoToken Token { get; set; }
 
         [DataMember]
         public Me VenmoAccount { get; set; }

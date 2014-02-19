@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 
 namespace Venmo
 {
-    #region User Requests
-
-    #endregion
-
     #region User Request Responses
     /// <summary>
     /// Me (Current user) resource
     /// </summary>
     [DataContract]
-    public class Me
+    public class Me : VenmoResponse
     {
         [DataMember]
         public User UserAccount { get; set; }
@@ -29,7 +25,7 @@ namespace Venmo
     /// User account resource
     /// </summary>
     [DataContract]
-    public class User
+    public class User : VenmoResponse
     {
         [DataMember]
         public string Username { get; set; }
@@ -72,7 +68,7 @@ namespace Venmo
     /// User's friend resource
     /// </summary>
     [DataContract]
-    public class Friend
+    public class Friend : VenmoResponse
     {
         [DataMember]
         public string Id { get; set; }

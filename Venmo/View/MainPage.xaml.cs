@@ -2,35 +2,31 @@
 using System.Net;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 
 namespace Venmo
 {
     public sealed partial class MainPage : PhoneApplicationPage
     {
-        private HttpClient httpClient;
-        private VenmoAuthUser user;
-
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-            this.httpClient = new HttpClient();
-            // Set the data context of the listbox control to the sample data
-            DataContext = App.ViewModel;
+
+            // Set the data context of MainPage view to MainViewModel
+            DataContext = App.MainViewModel;
         }
 
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (!App.ViewModel.IsDataLoaded)
+            if (!App.MainViewModel.IsDataLoaded)
             {
-                App.ViewModel.LoadData();
+                App.MainViewModel.LoadData();
             }
         }
     }

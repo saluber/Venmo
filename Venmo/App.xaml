@@ -15,7 +15,7 @@
             <Setter Property="FontSize" Value="{StaticResource PanoramaItemHeaderFontSize}"/>
             <Setter Property="CharacterSpacing" Value="-35"/>
         </Style>
-        
+
         <local:LocalizedStrings xmlns:local="clr-namespace:Venmo" x:Key="LocalizedStrings"/>
     </Application.Resources>
 

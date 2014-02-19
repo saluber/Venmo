@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Diagnostics;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Resources;
 using System.Windows;
 using System.Windows.Markup;
@@ -9,7 +11,6 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Venmo.Resources;
-using Venmo.ViewModel;
 
 namespace Venmo
 {
@@ -21,23 +22,65 @@ namespace Venmo
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
-        private static MainViewModel viewModel = null;
+        private static MainViewModel mainViewModel = null;
+        private static LoginViewModel loginViewModel = null;
+        private static TransactionViewModel transactionViewModel = null;
+
+        //private HttpClient httpClient;
+
+        //private VenmoAuthUser appUser;
 
         /// <summary>
-        /// A static ViewModel used by the views to bind against.
+        /// A static MainViewModel used by the MainView to bind against.
         /// </summary>
         /// <returns>The MainViewModel object.</returns>
-        public static MainViewModel ViewModel
+        public static MainViewModel MainViewModel
         {
             get
             {
                 // Delay creation of the view model until necessary
-                if (viewModel == null)
+                if (mainViewModel == null)
                 {
-                    viewModel = new MainViewModel();
+                    mainViewModel = new MainViewModel();
                 }
 
-                return viewModel;
+                return mainViewModel;
+            }
+        }
+
+        /// <summary>
+        /// A static LoginViewModel used by the LoginView to bind against.
+        /// </summary>
+        /// <returns>The MainViewModel object.</returns>
+        public static LoginViewModel LoginViewModel
+        {
+            get
+            {
+                // Delay creation of the view model until necessary
+                if (loginViewModel == null)
+                {
+                    loginViewModel = new LoginViewModel();
+                }
+
+                return loginViewModel;
+            }
+        }
+
+        /// <summary>
+        /// A static TransactionViewModel used by the TransactionView to bind against.
+        /// </summary>
+        /// <returns>The MainViewModel object.</returns>
+        public static TransactionViewModel TransactionViewModel
+        {
+            get
+            {
+                // Delay creation of the view model until necessary
+                if (transactionViewModel == null)
+                {
+                    transactionViewModel = new TransactionViewModel();
+                }
+
+                return transactionViewModel;
             }
         }
 
@@ -91,9 +134,9 @@ namespace Venmo
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
             // Ensure that application state is restored appropriately
-            if (!App.ViewModel.IsDataLoaded)
+            if (!App.MainViewModel.IsDataLoaded)
             {
-                App.ViewModel.LoadData();
+                App.MainViewModel.LoadData();
             }
         }
 

@@ -127,101 +127,142 @@
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
     <value>Venmo</value>
+    <comment>AppResource_ApplicationTitle</comment>
   </data>
   <data name="BaseUrl" xml:space="preserve">
     <value>https://api.venmo.com/v1</value>
+    <comment>Venmo REST API base path</comment>
   </data>
   <data name="FeedbackEmail" xml:space="preserve">
     <value>mailto:samantha.luber@outlook.com</value>
+    <comment>Email address for feedback</comment>
   </data>
-  <data name="SampleProperty" xml:space="preserve">
-    <value>IORABs</value>
-  </data>
-  <data name="AmountFieldDefaultValue" xml:space="preserve">
+  <data name="AmountDefaultValue" xml:space="preserve">
     <value>0.00</value>
+    <comment>TransactionView_Field_AmountFieldDefaultValue</comment>
   </data>
   <data name="AmountFieldTitle" xml:space="preserve">
     <value>Amount:</value>
+    <comment>TransactionView_Field_AmountFieldTitle</comment>
   </data>
   <data name="BalanceText" xml:space="preserve">
     <value>Balance:</value>
+    <comment>MainView_BalanceText</comment>
   </data>
-  <data name="CancelButtonTitle" xml:space="preserve">
+  <data name="CancelText" xml:space="preserve">
     <value>Cancel</value>
+    <comment>TransactionView_CancelText</comment>
   </data>
-  <data name="ChargeViewTitle" xml:space="preserve">
-    <value>Charge money</value>
+  <data name="ChargeText" xml:space="preserve">
+    <value>Charge</value>
+    <comment>TransactionView_ChargeText</comment>
   </data>
-  <data name="ConfirmationViewChargeText" xml:space="preserve">
+  <data name="ConfirmationFlyoutCharge" xml:space="preserve">
     <value>Your request has been seent!</value>
+    <comment>TransactionView_ConfirmationFlyout_ChargeText</comment>
   </data>
-  <data name="ConfirmationViewPayText" xml:space="preserve">
+  <data name="ConfirmationFlyoutPay" xml:space="preserve">
     <value>Your payment has been sent!</value>
+    <comment>TransactionView_ConfirmationFlyout_PayText</comment>
   </data>
-  <data name="ConfirmationViewTitle" xml:space="preserve">
+  <data name="ConfirmationFlyoutTitle" xml:space="preserve">
     <value>Success</value>
+    <comment>TransactionView_ConfirmationFlyout_Title</comment>
   </data>
   <data name="CurrencySymbol" xml:space="preserve">
     <value>$</value>
+    <comment>AppResource_CurrencySymbol</comment>
   </data>
-  <data name="FriendsViewTitle" xml:space="preserve">
+  <data name="FriendsTitle" xml:space="preserve">
     <value>Friends</value>
+    <comment>MainView_FriendsTitle</comment>
   </data>
-  <data name="InvalidAmountFieldError" xml:space="preserve">
+  <data name="InvalidAmountError" xml:space="preserve">
     <value>Invalid amount</value>
+    <comment>TransactionView_Error_InvalidAmountText</comment>
   </data>
-  <data name="InvalidToFieldError" xml:space="preserve">
+  <data name="InvalidUserError" xml:space="preserve">
     <value>Venmo user not found</value>
+    <comment>TransactionView_Error_InvalidUserText</comment>
   </data>
-  <data name="LogoutSettingTitle" xml:space="preserve">
+  <data name="AppbarLogoutText" xml:space="preserve">
     <value>Logout</value>
+    <comment>Appbar_LogoutText</comment>
   </data>
   <data name="MainViewTitle" xml:space="preserve">
     <value>Venmo</value>
+    <comment>MainView_Title</comment>
   </data>
   <data name="MessageFieldDefaultValue" xml:space="preserve">
-    <value>Optional note</value>
+    <value>Required note</value>
+    <comment>TransactionView_Field_MessageFieldDefaultValue</comment>
   </data>
   <data name="MessageFieldTitle" xml:space="preserve">
     <value>Message:</value>
+    <comment>TransactionView_Field_MessageFieldTitle</comment>
   </data>
-  <data name="MeViewTitle" xml:space="preserve">
+  <data name="MeTitle" xml:space="preserve">
     <value>Me</value>
+    <comment>MainView_MeTitle</comment>
   </data>
   <data name="PaidText" xml:space="preserve">
     <value> paid </value>
+    <comment>MainView_PaidText</comment>
   </data>
-  <data name="PayViewTitle" xml:space="preserve">
-    <value>Pay money</value>
+  <data name="PayText" xml:space="preserve">
+    <value>Pay</value>
+    <comment>TransactionView_PayText</comment>
   </data>
-  <data name="PrivacySettingFriendsTitle" xml:space="preserve">
+  <data name="PrivacyFriendsTitle" xml:space="preserve">
     <value>Friends</value>
+    <comment>AppResource_PrivacyFriendsTitle</comment>
   </data>
-  <data name="PrivacySettingPrivateTitle" xml:space="preserve">
+  <data name="PrivacyPrivateTitle" xml:space="preserve">
     <value>Private</value>
+    <comment>AppResource_PrivacyPrivateTitle</comment>
   </data>
-  <data name="PrivacySettingPublicTitle" xml:space="preserve">
+  <data name="PrivacyPublicTitle" xml:space="preserve">
     <value>Public</value>
+    <comment>AppResource_PrivacyPublicTitle</comment>
   </data>
-  <data name="PrivacySettingTitle" xml:space="preserve">
+  <data name="PrivacyFieldTitle" xml:space="preserve">
     <value>Privacy Setting</value>
+    <comment>TransactionView_Field_PrivacyTitle</comment>
   </data>
-  <data name="RefreshButtonTitle" xml:space="preserve">
+  <data name="AppbarRefreshText" xml:space="preserve">
     <value>Refresh</value>
+    <comment>Appbar_RefreshText</comment>
   </data>
-  <data name="SendButtonTitle" xml:space="preserve">
+  <data name="SendText" xml:space="preserve">
     <value>Send</value>
+    <comment>TransactionView_SendText</comment>
   </data>
-  <data name="ToFieldDefaultValue" xml:space="preserve">
+  <data name="UserFieldDefaultValue" xml:space="preserve">
     <value>Email or username</value>
+    <comment>TransactionView_Field_UserFieldDefaultValue</comment>
   </data>
-  <data name="ToFieldTitle" xml:space="preserve">
+  <data name="UserFieldTitle" xml:space="preserve">
     <value>To:</value>
+    <comment>TransactionView_Field_UserFieldTitle</comment>
   </data>
-  <data name="AuthorizationError" xml:space="preserve">
+  <data name="LoginError" xml:space="preserve">
     <value>Authorization failed :(. Please try again!</value>
+    <comment>LoginView_ErrorText</comment>
   </data>
-  <data name="AuthorizationSuccess" xml:space="preserve">
+  <data name="LoginSuccess" xml:space="preserve">
     <value>Success!</value>
+    <comment>LoginView_SuccessText</comment>
+  </data>
+  <data name="FeedTitle" xml:space="preserve">
+    <value>Feed</value>
+    <comment>MainView_FeedTitle</comment>
+  </data>
+  <data name="InvalidGenericError" xml:space="preserve">
+    <value>Something went wrong :(. Very sadness, much apologies. Please try again later!</value>
+    <comment>TransactionView_Error_GenericMessageText</comment>
+  </data>
+  <data name="InvalidMessageError" xml:space="preserve">
+    <value>Message is required!</value>
+    <comment>TransactionView_Error_InvalidMessageText</comment>
   </data>
 </root>
