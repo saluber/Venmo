@@ -137,7 +137,7 @@
     <value>mailto:samantha.luber@outlook.com</value>
     <comment>Email address for feedback</comment>
   </data>
-  <data name="AmountDefaultValue" xml:space="preserve">
+  <data name="AmountFieldDefaultValue" xml:space="preserve">
     <value>0.00</value>
     <comment>TransactionView_Field_AmountFieldDefaultValue</comment>
   </data>
@@ -252,6 +252,10 @@
   <data name="LoginSuccess" xml:space="preserve">
     <value>Success!</value>
     <comment>LoginView_SuccessText</comment>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>About</value>
+    <comment>MainView_AboutTitle</comment>
   </data>
   <data name="FeedTitle" xml:space="preserve">
     <value>Feed</value>

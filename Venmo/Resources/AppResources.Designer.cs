@@ -61,11 +61,20 @@ namespace Venmo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string AboutTitle {
+            get {
+                return ResourceManager.GetString("AboutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 0.00.
         /// </summary>
-        public static string AmountDefaultValue {
+        public static string AmountFieldDefaultValue {
             get {
-                return ResourceManager.GetString("AmountDefaultValue", resourceCulture);
+                return ResourceManager.GetString("AmountFieldDefaultValue", resourceCulture);
             }
         }
         

@@ -22,14 +22,36 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.PayText, Source={StaticResource LocalizedStrings}}"
+                       Style="{StaticResource PhoneTextTitle1Style}" Grid.Row="0"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.ChargeText, Source={StaticResource LocalizedStrings}}"
+                       Style="{StaticResource PhoneTextTitle1Style}" Grid.Row="0"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <StackPanel Background="Transparent">
+                <TextBlock Text="{Binding Path=LocalizedResources.UserFieldTitle, Source={StaticResource LocalizedStrings}}"/>
+                <TextBox x:Name="TransactionUserField" Text="{Binding Path=LocalizedResources.UserFieldDefaultValue, Source={StaticResource LocalizedStrings}}"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.InvalidUserError, Source={StaticResource LocalizedStrings}}"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.AmountFieldTitle, Source={StaticResource LocalizedStrings}}"/>
+                <TextBox x:Name="TransactionAmountField" Text="{Binding Path=LocalizedResources.AmountFieldDefaultValue, Source={StaticResource LocalizedStrings}}"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.InvalidAmountError, Source={StaticResource LocalizedStrings}}"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.MessageFieldTitle, Source={StaticResource LocalizedStrings}}"/>
+                <TextBox x:Name="TransactionMessageField" Text="{Binding Path=LocalizedResources.MessageFieldDefaultValue, Source={StaticResource LocalizedStrings}}"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.InvalidMessageError, Source={StaticResource LocalizedStrings}}"/>
+            </StackPanel>
         </Grid>
+        
+        <Image Source="../Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Minimized" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
+            <shell:ApplicationBarIconButton Click="Send_Click" IconUri="/Images/send.png" Text="send" />
+            <shell:ApplicationBarIconButton Click="Cancel_Click" IconUri="/Images/cancel.png" Text="cancel" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Click="Logout_Click" Text="logout" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

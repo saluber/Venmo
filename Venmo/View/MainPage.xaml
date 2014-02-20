@@ -15,26 +15,6 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-
-        <!-- LOCALIZATION NOTE:
-            To localize the displayed strings copy their values to appropriately named
-            keys in the app's neutral language resource file (AppResources.resx) then
-            replace the hard-coded text value between the attributes' quotation marks
-            with the binding clause whose path points to that string name.
-
-            For example:
-
-                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
-
-            This binding points to the template's string resource named "ApplicationTitle".
-
-            Adding supported languages in the Project Properties tab will create a
-            new resx file per language that can carry the translated values of your
-            UI strings. The binding in these examples will cause the value of the
-            attributes to be drawn from the .resx file that matches the
-            CurrentUICulture of the app at run time.
-         -->
-
          <!--Panorama control-->
         <phone:Panorama Title="{Binding Path=LocalizedResources.MainViewTitle, Source={StaticResource LocalizedStrings}}">
             <phone:Panorama.Background>
@@ -103,6 +83,20 @@
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
             </phone:PanoramaItem>
+
+            <!--Panorama About View-->
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.AboutTitle, Source={StaticResource LocalizedStrings}}">
+                <!--Single line list with text wrapping-->
+                <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding UserFriends}">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,-6,0,12">
+                                <TextBlock Text="{Binding DisplayName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
+            </phone:PanoramaItem>
         </phone:Panorama>
         <!--Panorama item two-->
             <!--<phone:PanoramaItem>-->
@@ -144,6 +138,13 @@
 
             Before shipping remove this XAML and the image itself.-->
         <Image Source="../Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />
-
     </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Minimized" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
+            <shell:ApplicationBarIconButton Click="Refresh_Click" IconUri="/Images/refresh.png" Text="refresh" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Click="Logout_Click" Text="logout" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

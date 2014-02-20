@@ -20,6 +20,24 @@ namespace Venmo
             DataContext = App.TransactionViewModel;
         }
 
+        private void Send_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Send!");
+            // TODO: Do work for application here.
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cancel!");
+            // TODO: Do work for application here.
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Logout!");
+            // TODO: Do work for application here.
+        }
+
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
