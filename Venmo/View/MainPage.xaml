@@ -9,26 +9,25 @@
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
          <!--Panorama control-->
-        <phone:Panorama Title="{Binding Path=LocalizedResources.MainViewTitle, Source={StaticResource LocalizedStrings}}">
+        <phone:Panorama Title="{Binding Path=LocalizedResources.MainViewTitle, Source={StaticResource LocalizedStrings}}" Foreground="#3D95CE">
             <phone:Panorama.Background>
-                <ImageBrush ImageSource="/Venmo;component/Assets/PanoramaBackground.png"/>
+                <SolidColorBrush Color="White"/>
             </phone:Panorama.Background>
 
             <!--Panorama Feed View-->
-            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.FeedTitle, Source={StaticResource LocalizedStrings}}">
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.FeedTitle, Source={StaticResource LocalizedStrings}}" Foreground="#6E787F">
                 <!--Single line list with text wrapping-->
                 <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding UserFriendsFeed}">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,-6,0,12">
-                                <Grid Margin="12,0,0,38">
+                                <Grid Margin="12,0,0,12" Style="{StaticResource PanoramaItemTableStyle}">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
@@ -39,15 +38,18 @@
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding Actor.ProfilePictureURL}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
-                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="0"/>
-                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                    <Image Height="50" Width="50" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Stretch="None" Margin="0,7,7,0" Grid.RowSpan="2">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding Actor.ProfilePictureURL}" CreateOptions="BackgroundCreation"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap"  Style="{StaticResource PanoramaItemTableItemStyle}" 
                                                FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="1"/>
-                                    <TextBlock Text="{Binding FormattedAmount}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                    <TextBlock Text="{Binding FormattedAmount}"  Style="{StaticResource PanoramaItemTableItemStyle}" TextAlignment="Right"
                                                FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="2"/>
-                                    <TextBlock Text="{Binding Note}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                    <TextBlock Text="{Binding Note}"  Style="{StaticResource PanoramaItemTableItemStyle}" 
                                                FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="1" Grid.Column="1"/>
-                                    <TextBlock Text="{Binding DateCreated}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" 
+                                    <TextBlock Text="{Binding DateCreated}"  Style="{StaticResource PanoramaItemTableItemStyle}" 
                                                FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="2" Grid.Column="1"/>
                                 </Grid>
                             </StackPanel>
@@ -57,13 +59,64 @@
             </phone:PanoramaItem>
 
             <!--Panorama Me View-->
-            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.MeTitle, Source={StaticResource LocalizedStrings}}">
-                <!--Single line list with text wrapping-->
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.MeTitle, Source={StaticResource LocalizedStrings}}" Foreground="#6E787F">
+                <!-- My Activity -->
                 <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding UserFeed}">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,-6,0,12">
-                                <TextBlock Text="{Binding Id}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                                <!-- Me -->
+                                <Grid Margin="12,0,0,12" Style="{StaticResource PanoramaItemTableStyle}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="MeImage" Height="50" Width="50" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Stretch="None" Margin="0,7,7,0" Grid.RowSpan="2">
+                                        <Image.Source>
+                                            <BitmapImage CreateOptions="BackgroundCreation"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <TextBlock  x:Name="MeDisplayName" Text="Display Name (username)" Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               TextWrapping="NoWrap" FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock x:Name="MeAbout" Text="About me" Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="1" Grid.Column="1"/>
+                                    <TextBlock x:Name="MeBalance" Text="Balance: $0.00" Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="2" Grid.Column="1"/>
+                                </Grid>
+                                <!-- My Activity Title -->
+                                <TextBlock Text="{Binding Path=LocalizedResources.MyActivityTitle, Source={StaticResource LocalizedStrings}}" 
+                                           Margin="6,0,0,12" Foreground="#6E787F" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                                <!-- My Activity Table -->
+                                <Grid Margin="12,0,0,12" Style="{StaticResource PanoramaItemTableStyle}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Height="50" Width="50" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Stretch="None" Margin="0,7,7,0" Grid.RowSpan="2">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding Actor.ProfilePictureURL}" CreateOptions="BackgroundCreation"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap"  Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding FormattedAmount}"  Style="{StaticResource PanoramaItemTableItemStyle}" TextAlignment="Right"
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="2"/>
+                                    <TextBlock Text="{Binding Note}"  Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="1" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding DateCreated}"  Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="2" Grid.Column="1"/>
+                                </Grid>
                             </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
@@ -71,13 +124,35 @@
             </phone:PanoramaItem>
 
             <!--Panorama Friends View-->
-            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.FriendsTitle, Source={StaticResource LocalizedStrings}}">
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.FriendsTitle, Source={StaticResource LocalizedStrings}}" Foreground="#6E787F">
                 <!--Single line list with text wrapping-->
                 <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding UserFriends}">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,-6,0,12">
-                                <TextBlock Text="{Binding DisplayName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                                <Grid Margin="12,0,0,12" Style="{StaticResource PanoramaItemTableStyle}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Height="50" Width="50" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Stretch="None" Margin="0,7,7,0" Grid.RowSpan="2">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding ProfilePictureURL}" CreateOptions="BackgroundCreation"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <TextBlock Text="{Binding DisplayName}" Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               TextWrapping="NoWrap" FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="0" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding Username}" Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="1" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding About}" Style="{StaticResource PanoramaItemTableItemStyle}" 
+                                               FontSize="{StaticResource PhoneFontSizeNormal}" Grid.Row="2" Grid.Column="1"/>
+                                </Grid>
                             </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
@@ -85,7 +160,7 @@
             </phone:PanoramaItem>
 
             <!--Panorama About View-->
-            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.AboutTitle, Source={StaticResource LocalizedStrings}}">
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.AboutTitle, Source={StaticResource LocalizedStrings}}" Foreground="#6E787F">
                 <!--Single line list with text wrapping-->
                 <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding UserFriends}">
                     <phone:LongListSelector.ItemTemplate>
@@ -140,8 +215,8 @@
         <Image Source="../Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Minimized" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
-            <shell:ApplicationBarIconButton Click="Refresh_Click" IconUri="/Images/refresh.png" Text="refresh" />
+        <shell:ApplicationBar Mode="Minimized" Opacity="1.0" IsMenuEnabled="True" IsVisible="True" BackgroundColor="#3D95CE">
+            <shell:ApplicationBarIconButton Click="Refresh_Click" IconUri="/Assets/refresh.png" Text="refresh" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Click="Logout_Click" Text="logout" />
             </shell:ApplicationBar.MenuItems>

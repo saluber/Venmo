@@ -41,7 +41,16 @@ namespace Venmo
             // Sample data; replace with real data (TODO: Send requests to Venmo for data fields)
             this.UserMe = VenmoCommon.MeTestItem;
             this.UserFriends.Add(VenmoCommon.FriendTestItem);
+            this.UserFriends.Add(VenmoCommon.FriendTestItem);
+            this.UserFriends.Add(VenmoCommon.FriendTestItem);
+            this.UserFriends.Add(VenmoCommon.FriendTestItem);
             this.UserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.UserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.UserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.UserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.UserFriendsFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.UserFriendsFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.UserFriendsFeed.Add(VenmoCommon.TransactionSummaryTestItem);
             this.UserFriendsFeed.Add(VenmoCommon.TransactionSummaryTestItem);
             this.LastDataLoad = DateTime.Now;
             this.IsDataLoaded = true;

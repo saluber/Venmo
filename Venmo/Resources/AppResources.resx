@@ -269,4 +269,8 @@
     <value>Message is required!</value>
     <comment>TransactionView_Error_InvalidMessageText</comment>
   </data>
+  <data name="MyActivityTitle" xml:space="preserve">
+    <value>My Activity</value>
+    <comment>MainView_MyActivityTitle</comment>
+  </data>
 </root>

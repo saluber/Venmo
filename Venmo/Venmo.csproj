@@ -144,6 +144,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\back.png" />
+    <Content Include="Assets\basecircle.png" />
+    <Content Include="Assets\cancel.png" />
+    <Content Include="Assets\check.png" />
+    <Content Include="Assets\feature.search.png" />
+    <Content Include="Assets\overflowdots.png" />
+    <Content Include="Assets\refresh.png" />
     <Content Include="Assets\Tiles\VenmoLogo_IconicTileMedium.png" />
     <Content Include="Assets\Tiles\VenmoLogo_IconicTileSmall.png" />
     <Content Include="Assets\venmo_logo_blue.png" />

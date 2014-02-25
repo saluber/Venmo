@@ -304,6 +304,15 @@ namespace Venmo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My Activity.
+        /// </summary>
+        public static string MyActivityTitle {
+            get {
+                return ResourceManager.GetString("MyActivityTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  paid .
         /// </summary>
         public static string PaidText {

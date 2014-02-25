@@ -8,13 +8,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
+    Foreground="#3D95CE"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
-
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -23,9 +23,9 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="{Binding Path=LocalizedResources.PayText, Source={StaticResource LocalizedStrings}}"
-                       Style="{StaticResource PhoneTextTitle1Style}" Grid.Row="0"/>
+                       Style="{StaticResource PhoneTextTitle1Style}" Foreground="#6E787F" Grid.Row="0"/>
             <TextBlock Text="{Binding Path=LocalizedResources.ChargeText, Source={StaticResource LocalizedStrings}}"
-                       Style="{StaticResource PhoneTextTitle1Style}" Grid.Row="0"/>
+                       Style="{StaticResource PhoneTextTitle1Style}" Foreground="#6E787F" Grid.Row="0"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -47,8 +47,8 @@
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar Mode="Minimized" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
-            <shell:ApplicationBarIconButton Click="Send_Click" IconUri="/Images/send.png" Text="send" />
-            <shell:ApplicationBarIconButton Click="Cancel_Click" IconUri="/Images/cancel.png" Text="cancel" />
+            <shell:ApplicationBarIconButton Click="Send_Click" IconUri="/Assets/check.png" Text="send" />
+            <shell:ApplicationBarIconButton Click="Cancel_Click" IconUri="/Assets/cancel.png" Text="cancel" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Click="Logout_Click" Text="logout" />
             </shell:ApplicationBar.MenuItems>
