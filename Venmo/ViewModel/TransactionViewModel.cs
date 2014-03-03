@@ -13,11 +13,11 @@ namespace Venmo
     {
         public TransactionViewModel()
         {
-            this.UserTransaction = new TransactionSubmission();
+            this.UserTransaction = new VenmoTransactionResponse();
             this.UserTransactionAction = new TransactionAction();
         }
 
-        public TransactionSubmission UserTransaction { get; private set; }
+        public VenmoTransactionResponse UserTransaction { get; private set; }
         public TransactionAction UserTransactionAction { get; private set; }
 
         private void CancelTransaction_Tap(object sender, GestureEventArgs e)

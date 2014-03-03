@@ -10,7 +10,7 @@ namespace Venmo
 {
     public static class VenmoCommon
     {
-        #region Constants
+        #region Venmo Constants
 
         #region Application Secret Strings
         internal const string ClientId = "1545";
@@ -45,62 +45,14 @@ namespace Venmo
         public const string FriendsUri = @"https://api.venmo.com/v1/friends";
         #endregion // Venmo API Uris
 
-        #endregion // Constants
-
-        #region Helper Methods
-        public static DateTime GetFormattedDate(long utcDate)
-        {
-            return DateTime.FromFileTimeUtc(utcDate).ToLocalTime();
-        }
-
-        public static async Task AuthorizeApp()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static async Task<VenmoAuthUser> LogIn(string venomAuthCode)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static async Task<VenmoResponse> PostTransaction()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static async Task<VenmoAuthUser> GetMe()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static async Task<User> GetUser(string userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static async Task<List<Friend>> GetFriendList(string userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static async Task<VenmoAuthUser> RefreshLogin(VenmoToken token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static void LogOut(VenmoAuthUser user)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion // Helper Methods
+        #endregion // Venmo Constants
 
         #region Test Data
-        public static TransactionSummary[] TransactionSummaryTestArray
+        public static VenmoTransactionSummary[] TransactionSummaryTestArray
         {
             get
             {
-                TransactionSummary[] transactions = new TransactionSummary[3];
+                VenmoTransactionSummary[] transactions = new VenmoTransactionSummary[3];
                 for (int i = 0; i < transactions.Length; i++)
                 {
                     transactions[i] = VenmoCommon.TransactionSummaryTestItem;
@@ -110,11 +62,11 @@ namespace Venmo
             }
         }
 
-        public static TransactionSummary TransactionSummaryTestItem
+        public static VenmoTransactionSummary TransactionSummaryTestItem
         {
             get
             {
-                return new TransactionSummary()
+                return new VenmoTransactionSummary()
                 {
                     Status = "Settled",
                     Target = VenmoCommon.TargetTestItem,
@@ -130,11 +82,11 @@ namespace Venmo
             }
         }
 
-        public static Target TargetTestItem
+        public static VenmoTransactionTarget TargetTestItem
         {
             get
             {
-                return new Target()
+                return new VenmoTransactionTarget()
                 {
                     Id = "Id",
                     Username = "Username",
@@ -151,11 +103,11 @@ namespace Venmo
             }
         }
 
-        public static Actor ActorTestItem
+        public static VenmoTransactionActor ActorTestItem
         {
             get
             {
-                return new Actor()
+                return new VenmoTransactionActor()
                 {
                     Id = "Id",
                     Username = "Username",
@@ -169,11 +121,11 @@ namespace Venmo
             }
         }
 
-        public static Transaction TransactionTestItem
+        public static VenmoTransaction TransactionTestItem
         {
             get
             {
-                return new Transaction()
+                return new VenmoTransaction()
                 {
                     Status = "Settled",
                     Refund = null,
@@ -192,11 +144,11 @@ namespace Venmo
             }
         }
 
-        public static Me MeTestItem
+        public static VenmoUserMe MeTestItem
         {
             get
             {
-                return new Me()
+                return new VenmoUserMe()
                 {
                     UserAccount = VenmoCommon.UserTestItem,
                     Balance = 20.0
@@ -204,11 +156,11 @@ namespace Venmo
             }
         }
 
-        public static User UserTestItem
+        public static VenmoUser UserTestItem
         {
             get
             {
-                return new User()
+                return new VenmoUser()
                 {
                     Id = "Id",
                     Username = "Username",
@@ -226,11 +178,11 @@ namespace Venmo
             }
         }
 
-        public static Friend FriendTestItem
+        public static VenmoUserSummary FriendTestItem
         {
             get
             {
-                return new Friend()
+                return new VenmoUserSummary()
                 {
                     Id = "Id",
                     Username = "Username",

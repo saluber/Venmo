@@ -12,10 +12,10 @@ namespace Venmo
     /// Me (Current user) resource
     /// </summary>
     [DataContract]
-    public class Me : VenmoResponse
+    public class VenmoUserMe : VenmoResponse
     {
         [DataMember]
-        public User UserAccount { get; set; }
+        public VenmoUser UserAccount { get; set; }
 
         [DataMember]
         public double Balance { get; set; }
@@ -25,7 +25,7 @@ namespace Venmo
     /// User account resource
     /// </summary>
     [DataContract]
-    public class User : VenmoResponse
+    public class VenmoUser : VenmoResponse
     {
         [DataMember]
         public string Username { get; set; }
@@ -65,10 +65,10 @@ namespace Venmo
     }
 
     /// <summary>
-    /// User's friend resource
+    /// Venmo user's friend resource
     /// </summary>
     [DataContract]
-    public class Friend : VenmoResponse
+    public class VenmoUserSummary : VenmoResponse
     {
         [DataMember]
         public string Id { get; set; }

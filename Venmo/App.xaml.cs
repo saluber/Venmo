@@ -22,13 +22,11 @@ namespace Venmo
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
-        private static MainViewModel mainViewModel = null;
-        private static LoginViewModel loginViewModel = null;
-        private static TransactionViewModel transactionViewModel = null;
+        private static MainViewModel s_mainViewModel = null;
+        private static LoginViewModel s_loginViewModel = null;
+        private static TransactionViewModel s_transactionViewModel = null;
 
-        //private HttpClient httpClient;
-
-        //private VenmoAuthUser appUser;
+        private static VenmoSession s_venmoSession;
 
         /// <summary>
         /// A static MainViewModel used by the MainView to bind against.
@@ -39,12 +37,12 @@ namespace Venmo
             get
             {
                 // Delay creation of the view model until necessary
-                if (mainViewModel == null)
+                if (s_mainViewModel == null)
                 {
-                    mainViewModel = new MainViewModel();
+                    s_mainViewModel = new MainViewModel();
                 }
 
-                return mainViewModel;
+                return s_mainViewModel;
             }
         }
 
@@ -57,12 +55,12 @@ namespace Venmo
             get
             {
                 // Delay creation of the view model until necessary
-                if (loginViewModel == null)
+                if (s_loginViewModel == null)
                 {
-                    loginViewModel = new LoginViewModel();
+                    s_loginViewModel = new LoginViewModel();
                 }
 
-                return loginViewModel;
+                return s_loginViewModel;
             }
         }
 
@@ -75,12 +73,26 @@ namespace Venmo
             get
             {
                 // Delay creation of the view model until necessary
-                if (transactionViewModel == null)
+                if (s_transactionViewModel == null)
                 {
-                    transactionViewModel = new TransactionViewModel();
+                    s_transactionViewModel = new TransactionViewModel();
                 }
 
-                return transactionViewModel;
+                return s_transactionViewModel;
+            }
+        }
+
+        public static VenmoSession VenmoSession
+        {
+            get
+            {
+                // Delay creation of venmo session data
+                if (s_venmoSession == null)
+                {
+                    s_venmoSession = new VenmoSession();
+                }
+
+                return s_venmoSession;
             }
         }
 
@@ -134,7 +146,7 @@ namespace Venmo
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
             // Ensure that application state is restored appropriately
-            if (!App.MainViewModel.IsDataLoaded)
+            if (!App.VenmoSession.IsDataLoaded)
             {
                 App.MainViewModel.LoadData();
             }

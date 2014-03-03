@@ -22,14 +22,14 @@ namespace Venmo
         public string NextPage { get; set; }
 
         [DataMember]
-        public Error Error { get; set; }
+        public VenmoError Error { get; set; }
     }
 
     /// <summary>
     /// Resource for Venmo API error description and HttpStatusCode 
     /// </summary>
     [DataContract]
-    public class Error
+    public class VenmoError
     {
         [DataMember]
         public string Message { get; set; }

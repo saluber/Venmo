@@ -23,7 +23,7 @@ namespace Venmo
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("About!");
+            MessageBox.Show("Refresh!");
             // TODO: Do work for application here.
         }
 
@@ -36,7 +36,7 @@ namespace Venmo
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (!App.MainViewModel.IsDataLoaded)
+            if (!App.VenmoSession.IsDataLoaded)
             {
                 App.MainViewModel.LoadData();
             }

@@ -13,47 +13,35 @@ namespace Venmo
     {
         public MainViewModel()
         {
-            this.UserMe = new Me();
-            this.UserFriends = new ObservableCollection<Friend>();
-            this.UserFeed = new ObservableCollection<TransactionSummary>();
-            this.UserFriendsFeed = new ObservableCollection<TransactionSummary>();
         }
 
-        public Me UserMe { get; private set; }
-        public ObservableCollection<Friend> UserFriends { get; private set; }
-        public ObservableCollection<TransactionSummary> UserFeed { get; private set; }
-        public ObservableCollection<TransactionSummary> UserFriendsFeed { get; private set; }
-
-        public bool IsDataLoaded
+        public VenmoSession VenmoSession
         {
-            get;
-            private set;
-        }
-
-        public DateTime LastDataLoad
-        {
-            get;
-            private set;
+            get
+            {
+                return App.VenmoSession;
+            }
         }
 
         public void LoadData()
         {
             // Sample data; replace with real data (TODO: Send requests to Venmo for data fields)
-            this.UserMe = VenmoCommon.MeTestItem;
-            this.UserFriends.Add(VenmoCommon.FriendTestItem);
-            this.UserFriends.Add(VenmoCommon.FriendTestItem);
-            this.UserFriends.Add(VenmoCommon.FriendTestItem);
-            this.UserFriends.Add(VenmoCommon.FriendTestItem);
-            this.UserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
-            this.UserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
-            this.UserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
-            this.UserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
-            this.UserFriendsFeed.Add(VenmoCommon.TransactionSummaryTestItem);
-            this.UserFriendsFeed.Add(VenmoCommon.TransactionSummaryTestItem);
-            this.UserFriendsFeed.Add(VenmoCommon.TransactionSummaryTestItem);
-            this.UserFriendsFeed.Add(VenmoCommon.TransactionSummaryTestItem);
-            this.LastDataLoad = DateTime.Now;
-            this.IsDataLoaded = true;
+            this.VenmoSession.CurrentUserAccount = VenmoCommon.MeTestItem;
+            this.VenmoSession.CurrentUserFriends.Add(VenmoCommon.FriendTestItem);
+            this.VenmoSession.CurrentUserFriends.Add(VenmoCommon.FriendTestItem);
+            this.VenmoSession.CurrentUserFriends.Add(VenmoCommon.FriendTestItem);
+            this.VenmoSession.CurrentUserFriends.Add(VenmoCommon.FriendTestItem);
+            this.VenmoSession.CurrentUserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.CurrentUserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.CurrentUserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.CurrentUserFeed.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.CurrentUserHistory.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.CurrentUserHistory.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.CurrentUserHistory.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.CurrentUserHistory.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.CurrentUserHistory.Add(VenmoCommon.TransactionSummaryTestItem);
+            this.VenmoSession.TimeOfLastDataLoad = DateTime.Now;
+            this.VenmoSession.IsDataLoaded = true;
         }
 
         private void PayTransaction_Tap(object sender, GestureEventArgs e)

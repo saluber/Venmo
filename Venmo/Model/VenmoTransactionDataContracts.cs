@@ -80,7 +80,7 @@ namespace Venmo
 
     #region Transaction Requests
     [DataContract]
-    public class TransactionRequest : VenmoRequest
+    public class VenmoTransactionRequest : VenmoRequest
     {
         [DataMember]
         public string TargetUser { get; set; }
@@ -98,39 +98,39 @@ namespace Venmo
 
     #region Transaction Request Responses
     [DataContract]
-    public class TransactionSubmission : VenmoResponse
+    public class VenmoTransactionResponse : VenmoResponse
     {
         [DataMember]
         public string Balance { get; set; }
 
         [DataMember]
-        public Transaction Transaction { get; set; }
+        public VenmoTransaction Transaction { get; set; }
     }
 
     [DataContract]
-    public class RecentTransactions : VenmoResponse
+    public class VenmoTransactionHistory : VenmoResponse
     {
         [DataMember]
-        public TransactionSummary[] Transactions { get; set; }
+        public VenmoTransactionSummary[] Transactions { get; set; }
     }
 
     [DataContract]
-    public class TransactionSummary : VenmoResponse
+    public class VenmoTransactionSummary : VenmoResponse
     {
-        private string status;
+        private string m_status;
         [DataMember]
         public string Status 
         {
             get
             {
-                return this.status;
+                return this.m_status;
             }
             set
             {
-                this.status = value;
+                this.m_status = value;
                 // Try to parse TransactionStatus value from status field
                 TransactionStatus ts;
-                if (Enum.TryParse<TransactionStatus>(this.status, true, out ts))
+                if (Enum.TryParse<TransactionStatus>(this.m_status, true, out ts))
                 {
                     this.TransactionStatus = ts;
                 }
@@ -145,22 +145,22 @@ namespace Venmo
         public string DateCompleted { get; set; }
 
         [DataMember]
-        public Target Target { get; set; }
+        public VenmoTransactionTarget Target { get; set; }
 
-        private string audience;
+        private string m_audience;
         [DataMember]
         public string Audience 
         {
             get
             {
-                return this.audience;
+                return this.m_audience;
             }
             set
             {
-                this.audience = value;
+                this.m_audience = value;
                 // Try to parse TransactionAudience value from audience field
                 TransactionAudience ta;
-                if (Enum.TryParse<TransactionAudience>(this.audience, true, out ta))
+                if (Enum.TryParse<TransactionAudience>(this.m_audience, true, out ta))
                 {
                     this.TransactionAudience = ta;
                 }
@@ -172,7 +172,7 @@ namespace Venmo
         }
 
         [DataMember]
-        public Actor Actor { get; set; }
+        public VenmoTransactionActor Actor { get; set; }
 
         [DataMember]
         public string Note { get; set; }
@@ -180,20 +180,20 @@ namespace Venmo
         [DataMember]
         public double Amount { get; set; }
 
-        private string action;
+        private string m_action;
         [DataMember]
         public string Action 
         {
             get
             {
-                return this.action;
+                return this.m_action;
             }
             set
             {
-                this.action = value;
+                this.m_action = value;
                 // Try to parse TransactionAction value from action field
                 TransactionAction t;
-                if (Enum.TryParse<TransactionAction>(this.action, true, out t))
+                if (Enum.TryParse<TransactionAction>(this.m_action, true, out t))
                 {
                     this.TransactionAction = t;
                 }
@@ -251,22 +251,23 @@ namespace Venmo
 
     #region Transaction Base Data Contracts
     [DataContract]
-    public class Transaction
+    public class VenmoTransaction
     {
-        private string status;
+        private string m_status;
+
         [DataMember]
         public string Status
         {
             get
             {
-                return this.status;
+                return this.m_status;
             }
             set
             {
                 this.Status = value;
                 // Try to parse TransactionStatus value from status field
                 TransactionStatus ts;
-                if (Enum.TryParse<TransactionStatus>(this.status, true, out ts))
+                if (Enum.TryParse<TransactionStatus>(this.m_status, true, out ts))
                 {
                     this.TransactionStatus = ts;
                 }
@@ -278,22 +279,22 @@ namespace Venmo
         }
 
         [DataMember]
-        public Transaction Refund { get; set; }
+        public VenmoTransaction Refund { get; set; }
 
-        private string medium;
+        private string m_medium;
         [DataMember]
         public string Medium 
         {
             get
             {
-                return this.medium;
+                return this.m_medium;
             }
             set
             {
-                this.medium = value;
+                this.m_medium = value;
                 // Try to parse TransactionTransactionMedium value from medium field
                 TransactionMedium t;
-                if (Enum.TryParse<TransactionMedium>(this.medium, true, out t))
+                if (Enum.TryParse<TransactionMedium>(this.m_medium, true, out t))
                 {
                     this.TransactionMedium = t;
                 }
@@ -305,22 +306,22 @@ namespace Venmo
         }
 
         [DataMember]
-        public Target Target { get; set; }
+        public VenmoTransactionTarget Target { get; set; }
 
-        private string audience;
+        private string m_audience;
         [DataMember]
         public string Audience
         {
             get
             {
-                return this.audience;
+                return this.m_audience;
             }
             set
             {
-                this.audience = value;
+                this.m_audience = value;
                 // Try to parse TransactionAudience value from audience field
                 TransactionAudience ta;
-                if (Enum.TryParse<TransactionAudience>(this.audience, true, out ta))
+                if (Enum.TryParse<TransactionAudience>(this.m_audience, true, out ta))
                 {
                     this.TransactionAudience = ta;
                 }
@@ -332,7 +333,7 @@ namespace Venmo
         }
 
         [DataMember]
-        public Actor Actor { get; set; }
+        public VenmoTransactionActor Actor { get; set; }
 
         [DataMember]
         public string Note { get; set; }
@@ -343,20 +344,20 @@ namespace Venmo
         [DataMember]
         public double Fee { get; set; }
 
-        private string action;
+        private string m_action;
         [DataMember]
         public string Action
         {
             get
             {
-                return this.action;
+                return this.m_action;
             }
             set
             {
-                this.action = value;
+                this.m_action = value;
                 // Try to parse TransactionAction value from action field
                 TransactionAction t;
-                if (Enum.TryParse<TransactionAction>(this.action, true, out t))
+                if (Enum.TryParse<TransactionAction>(this.m_action, true, out t))
                 {
                     this.TransactionAction = t;
                 }
@@ -417,10 +418,10 @@ namespace Venmo
     }
 
     /// <summary>
-    /// Target user in a payment resource
+    /// Target user in a VenmoTransaction resource
     /// </summary>
     [DataContract]
-    public class Target
+    public class VenmoTransactionTarget
     {
         [DataMember]
         public string Id { get; set; }
@@ -457,10 +458,10 @@ namespace Venmo
     }
 
     /// <summary>
-    /// Acting user in a payment resource
+    /// Acting user in a VenmoTransaction resource
     /// </summary>
     [DataContract]
-    public class Actor
+    public class VenmoTransactionActor
     {
         [DataMember]
         public string Id { get; set; }

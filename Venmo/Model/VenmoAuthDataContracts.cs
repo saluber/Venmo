@@ -12,7 +12,7 @@ namespace Venmo
     /// Authorize mobile application for Venmo user request sent to Venmo service
     /// </summary>
     [DataContract]
-    public class AuthorizeAppRequest
+    public class VenmoAppAuthorizationRequest
     {
         [DataMember]
         public string ClientId { get; set; }
@@ -34,7 +34,7 @@ namespace Venmo
     /// Get token for authenticated Venmo user request sent to Venmo service
     /// </summary>
     [DataContract]
-    public class AccessTokenRequest
+    public class VenmoAccessTokenRequest
     {
         [DataMember]
         public string ClientId { get; set; }
@@ -50,7 +50,7 @@ namespace Venmo
     /// Refresh token request for authenticated Venmo user
     /// </summary>
     [DataContract]
-    public class RefreshTokenRequest
+    public class VenmoRefreshTokenRequest
     {
         [DataMember]
         public string ClientId { get; set; }
@@ -65,13 +65,13 @@ namespace Venmo
 
     #region Authentication Request Responses
     [DataContract]
-    public class VenmoAuthUser : VenmoResponse
+    public class VenmoTokenResponse : VenmoResponse
     {
         [DataMember]
         public VenmoToken Token { get; set; }
 
         [DataMember]
-        public Me VenmoAccount { get; set; }
+        public VenmoUserMe VenmoAccount { get; set; }
     }
 
     /// <summary>
